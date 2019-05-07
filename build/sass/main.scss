@@ -1,0 +1,202 @@
+$bg: #FCFCFC;
+$yellow: #FFD82B;
+$input: #F2F3F8;
+$text: #878787;
+$heading: #7D7D7D;
+
+$josefin: 'Josefin Sans', sans-serif;
+$ubuntu: 'Ubuntu', sans-serif;
+
+body {
+  background: $bg;
+}
+
+@mixin heading($size) {
+  font-family: $ubuntu;
+  font-weight: 700;
+  font-size: $size;
+  color: $heading;
+}
+
+@mixin paragraph($size) {
+  font-family: $ubuntu;
+  font-weight: 400;
+  font-size: $size;
+}
+
+@mixin shadow($size) {
+  -webkit-box-shadow: 0px $size 5px 0px rgba(50, 50, 50, 0.5);
+  -moz-box-shadow:    0px $size 5px 0px rgba(50, 50, 50, 0.5);
+  box-shadow:         0px $size 5px 0px rgba(50, 50, 50, 0.5);
+}
+
+.background {
+  background: $bg;
+}
+
+/* Loader */
+.loader-wrapper {
+  z-index: 1000;
+  background-color: $yellow;
+  color: #fff;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: 60px;
+  .loader {
+    display: inline-block;
+    position: relative;
+    top: 45%;
+    .loader-inner {
+      display: inline-block;
+      vertical-align: top;
+    }
+  }
+}
+
+/* Yellow */
+.yellow {
+  background: $yellow;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.main-header {
+  .logo {
+    padding: 20px 0;
+  }
+  .menu {
+    list-style: none;
+    padding: 50px 0;
+    a {
+      color: #000;
+      font-size: 32px;
+      padding: 20px;
+      &:hover {
+        color: #000;
+        background: #fff;
+        border-radius: 10px;
+      }
+    }
+    .active {
+      background: #fff;
+      border-radius: 10px;
+    }
+    li {
+      margin-bottom: 50px;
+    }
+  }
+}
+.notes {
+  padding: 50px;
+  .search {
+    .input-group-text {
+      border-top-left-radius: 30px;
+      border-bottom-left-radius: 30px;
+      border: none;
+      background: $input !important;
+      color: $text !important;
+    }
+
+    .form-control {
+      background: $input;
+      border: none;
+      border-top-right-radius: 30px;
+      border-bottom-right-radius: 30px;
+      color: $text !important;
+
+      &:focus {
+        outline: none;
+        -webkit-box-shadow: none !important;
+        -moz-box-shadow: none !important;
+        box-shadow: none !important;
+      }
+    }
+  }
+  .heading {
+    padding: 30px 0;
+    h1 {
+      @include heading(40px);
+    }
+    p {
+      @include paragraph(16px);
+      color: $heading;
+    }
+  }
+  .notes-row {
+    margin-bottom: 50px;
+    .note-item {
+      @include shadow(2px);
+      margin-bottom: 50px;
+      .heading {
+        background: $yellow;
+        padding: 30px;
+        h3 {
+          @include heading (20px);
+          color: #000;
+        }
+        p {
+          @include paragraph(16px);
+          color: #000;
+          margin-bottom: 0;
+        }
+      }
+      .content {
+        background: #fff;
+        padding: 30px;
+        p {
+          @include paragraph(16px);
+          color: $text;
+        }
+        span {
+          font-family: $ubuntu;
+          font-weight: 700;
+          font-size: 16px;
+          text-transform: uppercase;
+          margin-bottom: 30px;
+          cursor: pointer;
+        }
+        .remove-btn {
+          margin: 40px 0 0 0;
+        }
+      }
+    }
+  }
+}
+.btn-new-note {
+  padding: 10px 20px;
+  border-radius: 30px;
+  @include heading(14px);
+  color: #000;
+  text-transform: uppercase;
+  &:focus {
+    outline: none;
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    box-shadow: none !important;
+  }
+  background: $yellow;
+  i {
+    padding-right: 10px;
+  }
+}
+
+.btn-standard {
+  background: $input;
+  color: $text;
+  padding: 10px 20px;
+  border-radius: 30px;
+  @include heading(14px);
+  text-transform: uppercase;
+  &:focus {
+    outline: none;
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    box-shadow: none !important;
+  }
+}

@@ -1,0 +1,54 @@
+$bg: #FCFCFC;
+$yellow: #FFD82B;
+$input: #F2F3F8;
+$text: #878787;
+$heading: #7D7D7D;
+
+$josefin: 'Josefin Sans', sans-serif;
+$ubuntu: 'Ubuntu', sans-serif;
+
+body {
+  background: $bg;
+}
+
+@mixin heading($size) {
+  font-family: $ubuntu;
+  font-weight: 700;
+  font-size: $size;
+  color: $heading;
+}
+
+@mixin paragraph($size) {
+  font-family: $ubuntu;
+  font-weight: 400;
+  font-size: $size;
+}
+
+@mixin shadow($size) {
+  -webkit-box-shadow: 0px $size 5px 0px rgba(50, 50, 50, 0.5);
+  -moz-box-shadow:    0px $size 5px 0px rgba(50, 50, 50, 0.5);
+  box-shadow:         0px $size 5px 0px rgba(50, 50, 50, 0.5);
+}
+
+/* Loader */
+.loader-wrapper {
+  z-index: 1000;
+  background-color: $yellow;
+  color: #fff;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: 60px;
+  .loader {
+    display: inline-block;
+    position: relative;
+    top: 45%;
+    .loader-inner {
+      display: inline-block;
+      vertical-align: top;
+    }
+  }
+}

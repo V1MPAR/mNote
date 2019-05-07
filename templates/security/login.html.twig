@@ -1,0 +1,37 @@
+{% extends 'auth-base.html.twig' %}
+
+{% block title %}Login &mdash; mNote{% endblock %}
+
+{% block body %}
+
+<div class="row">
+    <div class="col-10 offset-1 col-lg-4 offset-lg-4">
+        <div class="panel">
+            <div class="row">
+                <div class="col-12">
+                    <div class="heading">
+                        <h1>Login</h1>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <form method="post">
+                        {% if error %}
+                            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                        {% endif %}
+                        <div class="form-group">
+                            <input type="email" class="form-control" name="email" id="exampleInputEmail1" value="{{ last_username }}" aria-describedby="emailHelp" placeholder="E-mail">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Password">
+                        </div>
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}" />
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+

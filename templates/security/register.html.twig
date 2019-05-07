@@ -1,0 +1,48 @@
+{% extends 'auth-base.html.twig' %}
+
+{% block title %}Register &mdash; mNote{% endblock %}
+
+{% block body %}
+
+<div class="row">
+    <div class="col-10 offset-1 col-lg-4 offset-lg-4">
+        <div class="panel">
+            <div class="row">
+                <div class="col-12">
+                    <div class="heading">
+                        <h1>Register</h1>
+                    </div>
+                </div>
+                <div class="col-12">
+                    {{ form_start(registrationForm) }}
+
+                        <div class="row">
+                            <div class="col-12">
+                                {{ form_errors(registrationForm) }}
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-12">
+                                {{ form_row(registrationForm.email, {'attr': {'class': 'form-control', 'placeholder': 'E-mail'}}) }}
+                            </div>
+                            <div class="form-group col-12">
+                                {{ form_row(registrationForm.password.first, {'attr': {'class': 'form-control', 'placeholder': 'Password'}}) }}
+                            </div>
+                            <div class="form-group col-12">
+                                {{ form_row(registrationForm.password.second, {'attr': {'class': 'form-control', 'placeholder': 'Repeat password'}}) }}
+                            </div>
+                            {{ form_row(registrationForm._token) }}
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary">Register</button>
+                            </div>
+                        </div>
+                    {{ form_end(registrationForm) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+

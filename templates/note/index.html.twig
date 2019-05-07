@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Notes &mdash; mNote{% endblock %}
+
+{% block body %}
+
+    <section class="notes">
+        <div class="row">
+            <div class="col-12">
+                <div class="search">
+                    <div class="row">
+                        <div class="col-10 offset-col-1 col-lg-2">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="Search" />
+                            </div>
+                        </div>
+                        <div class="col-10 offset-col-1 col-lg-10 text-right">
+                            <button class="btn btn-new-note"><i class="fas fa-plus"></i>Add new note</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="header">
+                    <div class="row">
+                        <div class="col-10 offset-col-1 col-lg-12">
+                            <div class="heading">
+                                <h1>Notes</h1>
+                                <p>{{ notesCount|length }} notes</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="note-section">
+                    <div class="row">
+                        <div class="col-10 offset-col-1 col-lg-12">
+                            <div class="notes-row">
+                                <div class="row">
+                                    {% for note in notes %}
+                                    <div class="col-12 col-lg-4">
+                                        <div class="note-item">
+                                            <div class="heading">
+                                                <h3>{{ note.title }}</h3>
+                                                <p>3 days</p>
+                                            </div>
+                                            <div class="content">
+                                                <p>{{ note.note|length > 100 ? note.note|slice(0, 100) ~ '...' : note.note  }}</p>
+                                                <div>
+                                                    <span>Read more</span>
+                                                </div>
+                                                <div class="remove-btn">
+                                                    <button class="btn btn-standard">Remove</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="navigation">
+                                {{ knp_pagination_render(notes) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+
